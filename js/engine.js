@@ -160,7 +160,12 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        if(player){
+            delete allEnemies;
+            delete player;
+        }
+        allEnemies = [new Enemy(50, 60, 80)];
+        player = new Player(203, 420, 20);
     }
 
     /* Go ahead and load all of the images we know we're going to need to

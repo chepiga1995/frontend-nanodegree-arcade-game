@@ -22,8 +22,11 @@ Enemy.prototype.constructor = Enemy;
 //Enemy's methods
 
 Enemy.prototype.update = function(dt) {
-    this.x += dt * this.speed;
-    this.x = this.x % 505;
+    if (this.x < WIDTH){
+        this.x += dt * this.speed;
+    } else{
+        this.x = - 100;
+    }
 };
 
 //Player
@@ -54,8 +57,8 @@ Player.prototype.handleInput = function(direction){
 
 //Instance
 
-var allEnemies = [new Enemy(20, 20, 50)];
-var player = new Player(203, 420, 20);
+var allEnemies;// = [new Enemy(20, 20, 50)];
+var player;// = new Player(203, 420, 20);
 
 
 

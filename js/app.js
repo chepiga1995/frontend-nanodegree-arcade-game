@@ -37,6 +37,7 @@ Enemy.prototype.render = function() {
 
 var Player = function(){
     Enemy.apply(this, arguments);
+    this.sprite = 'images/char-boy.png';
 }
 Player.prototype = Object.create(Enemy.prototype);
 Player.prototype.constructor = Player;
@@ -50,10 +51,10 @@ Player.prototype.handleInput = function(direction){
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
-        37: [0, -1],
-        38: [1, 0],
-        39: [0, 1],
-        40: [-1, 0]
+        37: [-1, 0],
+        38: [0, -1],
+        39: [1, 0],
+        40: [0, 1]
     };
 
     player.handleInput(allowedKeys[e.keyCode]);

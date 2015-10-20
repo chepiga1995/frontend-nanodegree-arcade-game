@@ -60,7 +60,16 @@ Player.prototype.handleInput = function(direction){
 var allEnemies;// = [new Enemy(20, 20, 50)];
 var player;// = new Player(203, 420, 20);
 
+//Collisions
 
+var checkCollisions = function(){
+    for (i in allEnemies){
+        // console.log(Math.abs(allEnemies[0].y - player.y));
+        if (Math.abs(allEnemies[i].x - player.x) < 60 && Math.abs(allEnemies[i].y - player.y) < 60)
+            return true;     
+    }
+    return false
+}
 
 
 document.addEventListener('keyup', function(e) {

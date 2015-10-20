@@ -164,7 +164,7 @@ var Engine = (function(global) {
             delete allEnemies;
             delete player;
         }
-        allEnemies = [new Enemy(50, 60, 80)];
+        allEnemies = [new Enemy(50, 60, 140), new Enemy(0, 140, 90), new Enemy(150, 220, 120)];
         player = new Player(203, 420, 20);
     }
 

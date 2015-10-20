@@ -1,3 +1,6 @@
+HEIGHT = 606;
+WIDTH = 505;
+
 var Entity = function(x, y, speed){
     this.x = x;
     this.y = y;
@@ -32,18 +35,27 @@ var Player = function(){
 
 Player.prototype = Object.create(Entity.prototype);
 Player.prototype.constructor = Player;
-
+Player.prototype.height = 100;
+Player.prototype.width = 80;
 //Player's methods
 
+Player.prototype.isInCanvas = function(direction){
+    var x = this.x + this.speed * direction[0];
+    var y = this.y + this.speed * direction[1];
+    return x > -15 && x < WIDTH - 100 && y > -15 && y < HEIGHT - 170;
+}
+
 Player.prototype.handleInput = function(direction){
-    this.x += this.speed * direction[0];
-    this.y += this.speed * direction[1];
+    if (this.isInCanvas(direction)){
+        this.x += this.speed * direction[0];
+        this.y += this.speed * direction[1];
+    }
 };
 
 //Instance
 
 var allEnemies = [new Enemy(20, 20, 50)];
-var player = new Player(120, 120, 50);
+var player = new Player(203, 420, 20);
 
 
 
